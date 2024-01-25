@@ -1,0 +1,9 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+
+<h3>{{ entry }}</h3>
+<h6>{{ entry.created_date }}</h6>
+<p>{{ entry.text|linebreaks }}</p>
+
+{% endblock content %}

@@ -5,7 +5,7 @@
 <h3>Lista wpisów:</h3>
 <ul>
     {% for entry in entries %}
-    <li>{{ entry }}</li>
+    <li><a href="{% url 'entry_detail' entry.id %}">{{ entry }}</a></li>
     {% empty %}
         Nie został jeszcze dodany żaden wpis.
     {% endfor %}
