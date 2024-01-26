@@ -2,7 +2,10 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
 <h3><a href="{% url 'new_entry' %}">Dodaj nowy wpis</a></h3>
+{% endif %}
+
 <h3>Lista wpisów:</h3>
 <ul>
     {% for entry in entries %}
