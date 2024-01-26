@@ -1,5 +1,5 @@
 # My Secret Diary
-Simple web app created with Python and Django.
+Simple web app created with Python and Django. For live version click [here](https://mysecretdiary.pythonanywhere.com/).
 
 ## Table of Contents
 * General info
