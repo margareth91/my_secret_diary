@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<h3><a href="{% url 'new_entry' %}">Dodaj nowy wpis</a></h3>
 <h3>Lista wpisów:</h3>
 <ul>
     {% for entry in entries %}
@@ -10,4 +11,5 @@
         Nie został jeszcze dodany żaden wpis.
     {% endfor %}
 </ul>
+
 {% endblock content %}
