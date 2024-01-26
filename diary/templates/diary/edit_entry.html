@@ -1,0 +1,15 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+
+<h3><a href="{% url 'entry_detail' entry.id %}">{{ entry.title }}</a></h3>
+
+<h3>Edycja wpisu:</h3>
+
+<form action="{% url 'edit_entry' entry.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Zapisz zmiany</button>
+</form>
+
+{% endblock content %}
