@@ -7,8 +7,16 @@
 
 <body>
 <a href="{% url 'index' %}">Strona główna</a> -
-<a href="{% url 'entry_list' %}">Lista wpisów</a>
-    {% block content %}
-    {% endblock content %}
+<a href="{% url 'entry_list' %}">Lista wpisów</a> -
+
+{% if user.is_authenticated %}
+Witaj, {{ user.username }} -
+<a href="{% url 'logout' %}">Wyloguj się</a>
+{% else %}
+<a href="{% url 'login' %}">Zaloguj się</a>
+{% endif %}
+
+{% block content %}
+{% endblock content %}
 </body>
 </html>
