@@ -52,3 +52,9 @@ def edit_entry(request, entry_id):
             return redirect("entry_detail", entry_id=entry.id)
     context = {"form": form, "entry": entry}
     return render(request, "diary/edit_entry.html", context)
+
+
+def remove_entry(request, entry_id):
+    entry = get_object_or_404(Entry, id=entry_id)
+    entry.delete()
+    return redirect("entry_list")

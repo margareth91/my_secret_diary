@@ -11,4 +11,6 @@
 <h6>{{ entry.created_date }}</h6>
 <p>{{ entry.text|linebreaks }}</p>
 
+<h4><a href="{% url 'remove_entry' entry.id %}">Usuń wpis</a></h4>
+
 {% endblock content %}
