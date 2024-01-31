@@ -1,5 +1,18 @@
 {% extends 'diary/base.html' %}
 
 {% block content %}
-<div><h3>My secret diary</h3></div>
+<div><h2>My secret diary</h2></div>
+
+{% if user.is_authenticated %}
+<h4>{{ user.username }}, jak się dzisiaj masz?</h4>
+<h5>Chcesz dodać <a href="{% url 'new_entry' %}">nowy wpis</a>?</h5>
+<h5>A może chcesz przejrzeć <a href="{% url 'entry_list' %}">dotychczasowe wpisy</a>?</h5>
+{% else %}
+<h4>Aplikacja "My secret diary" umożliwia użytkownikowi prowadzenie pamiętnika.</h4>
+<h4>Wpisy dostępne są tylko po zalogowaniu.</h4>
+<h5>Posiadasz już swój Sekretny Pamiętnik? <a href="{% url 'login' %}">Zaloguj się</a>.</h5>
+<h5>Chcesz posiadać swój własny Sekretny pamiętnik? <a href="{% url 'register' %}">Zarejestruj się</a>.</h5>
+<h4>Twój pamiętnik gotowy będzie od razu!</h4>
+{% endif %}
+
 {% endblock content %}
