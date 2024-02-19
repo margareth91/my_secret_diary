@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'diary',
     'accounts',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,5 @@ STATIC_ROOT = BASE_DIR / 'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/login/'
+
+BOOTSTRAP5 = {'include_jquery': True}
