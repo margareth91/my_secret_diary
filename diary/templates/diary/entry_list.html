@@ -1,18 +1,25 @@
 {% extends 'diary/base.html' %}
 
+
+{% block header %}
+
+<div class="mt-4 p-5 bg-light text-black rounded text-center">
+    <h2>Lista wpisów</h2>
+</div>
+{% endblock header %}
+
 {% block content %}
-
-{% if user.is_authenticated %}
-<h3><a href="{% url 'new_entry' %}">Dodaj nowy wpis</a></h3>
-{% endif %}
-
-<h3>Lista wpisów:</h3>
-<ul>
+<div class="list-group">
     {% for entry in entries %}
-    <li><a href="{% url 'entry_detail' entry.id %}">{{ entry }}</a></li>
+    <a href="{% url 'entry_detail' entry.id %}" class="list-group-item list-group-item-action text-secondary rounded">
+        {{ entry }}</a>
     {% empty %}
-        Nie został jeszcze dodany żaden wpis.
+    <a class="list-group-item text-secondary rounded">Nie został jeszcze dodany żaden wpis.</a>
     {% endfor %}
-</ul>
+</div>
+
+<div class="card mt-2">
+    <div class="card-header text-center"><a href="{% url 'new_entry' %}" class="card-link">Dodaj nowy wpis</a></div>
+</div>
 
 {% endblock content %}
