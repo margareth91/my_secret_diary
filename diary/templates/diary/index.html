@@ -11,15 +11,15 @@
     <h4>{{ user.username }}, jak się dzisiaj masz?</h4>
 </div>
 <div>
-    <h5 class="mt-3">Chcesz dodać <a href="{% url 'new_entry' %}">nowy wpis</a>?</h5>
-    <h5>A może chcesz przejrzeć <a href="{% url 'entry_list' %}">dotychczasowe wpisy</a>?</h5>
+    <h5 class="mt-3">Chcesz dodać <a href="{% url 'new_entry' %}" class="text-secondary">nowy wpis</a>?</h5>
+    <h5>A może chcesz przejrzeć <a href="{% url 'entry_list' %}" class="text-secondary">dotychczasowe wpisy</a>?</h5>
 </div>
 {% else %}
 <div>
     <h4>Aplikacja "My Secret Diary" umożliwia użytkownikowi prowadzenie pamiętnika.</h4>
     <h4>Wpisy dostępne są tylko po zalogowaniu.</h4>
-    <h5 class="mt-3">Posiadasz już swój Sekretny Pamiętnik? <a href="{% url 'login' %}">Zaloguj się</a>.</h5>
-    <h5>Chcesz prowadzić swój własny Sekretny Pamiętnik? <a href="{% url 'register' %}">Zarejestruj się</a>.</h5>
+    <h5 class="mt-3">Posiadasz już swój Sekretny Pamiętnik? <a href="{% url 'login' %}" class="text-secondary">Zaloguj się</a>.</h5>
+    <h5>Chcesz prowadzić swój własny Sekretny Pamiętnik? <a href="{% url 'register' %}" class="text-secondary">Zarejestruj się</a>.</h5>
     <h4 class="mt-3">Twój pamiętnik gotowy będzie od razu!</h4>
 </div>
 {% endif %}
