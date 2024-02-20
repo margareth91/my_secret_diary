@@ -1,5 +1,5 @@
 # My Secret Diary
-Simple web app created with Python and Django. For live version click [here](https://mysecretdiary.pythonanywhere.com/).
+Simple web app created with Python, Django and Bootstrap. For live version click [here](https://mysecretdiary.pythonanywhere.com/).
 
 ## Table of Contents
 * General info
@@ -15,6 +15,7 @@ Only logged in users can access their own entries.
 ## Technologies
 * Python 3.12.0
 * Django 5.1
+* Django-Bootstrap5
   
 ## Setup
 Please make sure you have Python already installed on your machine.
