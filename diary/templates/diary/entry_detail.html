@@ -1,16 +1,20 @@
 {% extends 'diary/base.html' %}
 
+{% block header %}
+<div class="mt-4 p-5 bg-light text-black rounded text-center"><h2>{{ entry }}</h2></div>
+{% endblock header %}
+
 {% block content %}
-
-<h3>{{ entry }}</h3>
-
-{% if user.is_authenticated %}
-<h3><a href="{% url 'edit_entry' entry.id %}">Edytuj wpis</a></h3>
-{% endif %}
-
-<h6>{{ entry.created_date }}</h6>
-<p>{{ entry.text|linebreaks }}</p>
-
-<h4><a href="{% url 'remove_entry' entry.id %}">Usuń wpis</a></h4>
-
+<div class="card">
+    <div class="card-header">
+        {{ entry.created_date }}
+    </div>
+    <div class="card-body">
+        <p>{{ entry.text|linebreaks }}</p>
+    </div>
+    <div class="card-footer text-center">
+        <a href="{% url 'edit_entry' entry.id %}" class="card-link text-secondary">Edytuj wpis</a>
+        <a href="{% url 'remove_entry' entry.id %}" class="card-link text-secondary">Usuń wpis</a>
+    </div>
+</div>
 {% endblock content %}
