@@ -12,9 +12,14 @@
     <div class="card-body">
         <p>{{ entry.text|linebreaks }}</p>
     </div>
-    <div class="card-footer text-center">
+</div>
+<div class="card mt-5">
+    <div class="card-header text-center">
         <a href="{% url 'edit_entry' entry.id %}" class="card-link text-secondary">Edytuj wpis</a>
         <a href="{% url 'remove_entry' entry.id %}" class="card-link text-secondary">Usuń wpis</a>
+    </div>
+    <div class="card-header text-center">
+        <a href="{% url 'new_entry' %}" class="card-link text-secondary">Dodaj nowy wpis</a>
     </div>
 </div>
 {% endblock content %}
