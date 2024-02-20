@@ -6,6 +6,7 @@ Simple web app created with Python, Django and Bootstrap. For live version click
 * Technologies
 * Setup
 * Status
+* To Do
 * Sources
 
 ## General info
@@ -23,7 +24,10 @@ Then, clone this repo to your desktop, activate virtual env and install all depe
 Once the dependencies are installed, run `py manage.py runserver` to start the web app on your localhost.
 
 ## Status
-App building still in progress. All basic functionalities are already working.
+App is completed and ready to use, however I plan to expand app functionalities (see next paragraph).
+
+## To Do
+* Possibility to add images/photos to user entries
 
 ## Sources
 This app is inspired by Eric Matthes book "Python Crash Course: A Hands-On, Project-Based Introduction to Programming" and by Django Girls tutorial "Django Girls Blog".
