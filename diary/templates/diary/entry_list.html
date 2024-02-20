@@ -1,8 +1,6 @@
 {% extends 'diary/base.html' %}
 
-
 {% block header %}
-
 <div class="mt-4 p-5 bg-light text-black rounded text-center">
     <h2>Lista wpisów</h2>
 </div>
@@ -21,5 +19,4 @@
 <div class="card mt-5">
     <div class="card-header text-center"><a href="{% url 'new_entry' %}" class="card-link text-secondary">Dodaj nowy wpis</a></div>
 </div>
-
 {% endblock content %}
