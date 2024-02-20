@@ -15,7 +15,7 @@
 <body>
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">My Secret Diary</a>
+        <a class="navbar-brand" href="{% url 'index' %}">My Secret Diary</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,19 +54,18 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="page-header">
-        {% block header%}
+<div class="container pt-5">
+    <div class="page-header p-5">
+        {% block header %}
         {% endblock header %}
     </div>
-    <div>
-        <br><br><br><br>
+    <div class="page-body px-5">
         {% block content %}
         {% endblock content %}
     </div>
 </div>
 
-<div class="mt-5 p-4 bg-light text-black text-center">
+<div class="footer mt-5 p-4 bg-light text-black text-center">
     <small>Created by malgo</small>
 </div>
 
