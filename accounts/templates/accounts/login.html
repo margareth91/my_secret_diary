@@ -1,16 +1,19 @@
 {% extends 'diary/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block header %}
+<div class="mt-4 p-5 bg-light text-black rounded text-center"><h2>Logowanie</h2></div>
+{% endblock header %}
 
 {% block content %}
-
-{% if form.errors %}
-Nazwa użytkownika i hasło nie są prawidłowe. Proszę spróbować ponownie.
-{% endif %}
-
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button name="submit">Zaloguj się</button>
-    <input type="hidden" name="next" value="{% url 'index' %}">
-</form>
-
+<div>
+    <form method="post" action="{% url 'login' %}" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form layout='inline' %}
+        <div class="pt-3 text-center">
+            <button name="submit" class="btn btn-light text-secondary">Zaloguj się</button>
+            <input type="hidden" name="next" value="{% url 'index' %}">
+        </div>
+    </form>
+</div>
 {% endblock content %}
