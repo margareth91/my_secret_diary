@@ -13,7 +13,7 @@
         {% csrf_token %}
         {% bootstrap_form form layout='inline' %}
         <div class="pt-3 text-center">
-            <button name="submit" class="btn btn-outline-light text-secondary">Zarejestruj się</button>
+            <button name="submit" class="btn btn-light text-secondary">Zarejestruj się</button>
             <input type="hidden" name="next" value="{% url 'index' %}">
         </div>
     </form>
