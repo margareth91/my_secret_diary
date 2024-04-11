@@ -3,7 +3,7 @@ import datetime
 from django.contrib.auth.models import User
 from django.test import TestCase
 
-from .models import Entry
+from diary.models import Entry
 
 
 class EntryModelTest(TestCase):
