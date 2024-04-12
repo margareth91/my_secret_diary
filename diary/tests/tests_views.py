@@ -49,13 +49,13 @@ class EntryDetailViewTest(TestCase):
         )
         self.entry = Entry.objects.get(id=1)
 
-    def redirect_not_logged_user(self):
-        response = self.client.get(reverse("entry_detail"))
+    def test_redirect_not_logged_user(self):
+        response = self.client.get(reverse("entry_detail", args=[1]))
         self.assertEqual(response.status_code, 302)
 
-    def get_entry_detail_logged_user(self):
+    def test_get_entry_detail_logged_user(self):
         self.client.login(username="user", password="password")
-        response = self.client.get(reverse("entry_detail"))
+        response = self.client.get(reverse("entry_detail", args=[1]))
         self.assertEqual(response.status_code, 200)
 
     def test_entry_detail_correct_template(self):
@@ -69,11 +69,11 @@ class NewEntryViewTest(TestCase):
         self.client = Client()
         self.user = User.objects.create_user(username="user", password="password")
 
-    def redirect_not_logged_user(self):
+    def test_redirect_not_logged_user(self):
         response = self.client.get(reverse("new_entry"))
         self.assertEqual(response.status_code, 302)
 
-    def get_new_entry_logged_user(self):
+    def test_get_new_entry_logged_user(self):
         self.client.login(username="user", password="password")
         response = self.client.get(reverse("new_entry"))
         self.assertEqual(response.status_code, 200)
