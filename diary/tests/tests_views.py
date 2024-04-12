@@ -62,3 +62,23 @@ class EntryDetailViewTest(TestCase):
         self.client.login(username="user", password="password")
         response = self.client.get(reverse("entry_detail", args=[1]))
         self.assertTemplateUsed(response, "diary/entry_detail.html")
+
+
+class NewEntryViewTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username="user", password="password")
+
+    def redirect_not_logged_user(self):
+        response = self.client.get(reverse("new_entry"))
+        self.assertEqual(response.status_code, 302)
+
+    def get_new_entry_logged_user(self):
+        self.client.login(username="user", password="password")
+        response = self.client.get(reverse("new_entry"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_new_entry_correct_template(self):
+        self.client.login(username="user", password="password")
+        response = self.client.get(reverse("new_entry"))
+        self.assertTemplateUsed(response, "diary/new_entry.html")
