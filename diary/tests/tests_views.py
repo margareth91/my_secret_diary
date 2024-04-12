@@ -109,3 +109,25 @@ class EditEntryViewTest(TestCase):
         self.client.login(username="user", password="password")
         response = self.client.get(reverse("edit_entry", args=[1]))
         self.assertTemplateUsed(response, "diary/edit_entry.html")
+
+
+class RemoveEntryViewTest(TestCase):
+    ENTRY_TITLE = "Lorem Ipsum"
+    ENTRY_TEXT = "Lorem ipsum dolor sit amet."
+
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username="user", password="password")
+        Entry.objects.create(
+            author=self.user, title=self.ENTRY_TITLE, text=self.ENTRY_TEXT
+        )
+        self.entry = Entry.objects.get(id=1)
+
+    def test_redirect_not_logged_user(self):
+        response = self.client.get(reverse("remove_entry", args=[1]))
+        self.assertTrue(response.status_code, 302)
+
+    def test_remove_entry_logged_user(self):
+        self.client.login(username="user", password="password")
+        response = self.client.get(reverse("remove_entry", args=[1]))
+        self.assertEqual(response.status_code, 302)
