@@ -65,6 +65,9 @@ class EntryDetailViewTest(TestCase):
 
 
 class NewEntryViewTest(TestCase):
+    ENTRY_TITLE = "Lorem Ipsum"
+    ENTRY_TEXT = "Lorem ipsum dolor sit amet."
+
     def setUp(self):
         self.client = Client()
         self.user = User.objects.create_user(username="user", password="password")
@@ -82,6 +85,16 @@ class NewEntryViewTest(TestCase):
         self.client.login(username="user", password="password")
         response = self.client.get(reverse("new_entry"))
         self.assertTemplateUsed(response, "diary/new_entry.html")
+
+    def test_post_new_entry(self):
+        self.client.login(username="user", password="password")
+        form_data = {
+            "author": self.user,
+            "title": self.ENTRY_TITLE,
+            "text": self.ENTRY_TEXT,
+        }
+        response = self.client.post(reverse("new_entry"), form_data)
+        self.assertEqual(response.status_code, 302)
 
 
 class EditEntryViewTest(TestCase):
