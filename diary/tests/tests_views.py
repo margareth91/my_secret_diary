@@ -123,6 +123,16 @@ class EditEntryViewTest(TestCase):
         response = self.client.get(reverse("edit_entry", args=[1]))
         self.assertTemplateUsed(response, "diary/edit_entry.html")
 
+    def test_post_edit_entry(self):
+        self.client.login(username="user", password="password")
+        form_data = {
+            "author": self.user,
+            "title": self.ENTRY_TITLE,
+            "text": self.ENTRY_TEXT,
+        }
+        response = self.client.post(reverse("edit_entry", args=[1]), form_data)
+        self.assertEqual(response.status_code, 302)
+
 
 class RemoveEntryViewTest(TestCase):
     ENTRY_TITLE = "Lorem Ipsum"
